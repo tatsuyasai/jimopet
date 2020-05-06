@@ -1,5 +1,46 @@
+/*pages/index*/
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: url();
+  background-image: url('IMG_3355 2.JPG');
+  background-attachment: fixed;
+  background-size: cover;
 }
+
+.text-white {
+  color: #fff;
+}
+
+.top-hero-container {
+  padding-top: 200px;
+  
+  h1 {
+    font-size: 56px;
+  }
+  
+  h4 {
+    margin-bottom: 60px;
+  }
+}
+
+/*user/new*/
+.users-new-wrapper {
+ width: 100vw;
+ height: 100vh;
+ background-image: url('IMG_3355 2.JPG');
+ background-attachment: fixed;
+ background-size: cover;
+ 
+ .users-new-container {
+   padding-top: 200px;
+ }
+ 
+ .form-group {
+   margin-bottom: 20px;
+ }
+ 
+ .btn-primary {
+   margin-left: 8px;
+ }
+}
+
