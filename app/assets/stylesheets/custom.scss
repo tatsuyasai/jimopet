@@ -9,17 +9,24 @@
 
 .text-white {
   color: #fff;
+  font-family: 'Corben', cursive;
 }
 
 .top-hero-container {
   padding-top: 200px;
   
   h1 {
-    font-size: 56px;
+    font-size: 60px;
   }
   
   h4 {
+    margin-top: 20px;  
     margin-bottom: 60px;
+    font-family: 'Kosugi Maru', sans-serif;
+  }
+  
+  p {
+    font-family: 'Kosugi Maru', sans-serif;
   }
 }
 
@@ -32,7 +39,11 @@
  background-size: cover;
  
  .users-new-container {
-   padding-top: 200px;
+   padding-top: 130px;
+   
+   h1 {
+     padding-bottom: 40px;
+   }
  }
  
  .form-group {
@@ -43,4 +54,9 @@
    margin-left: 8px;
  }
 }
-
+/*登録のフィードバック*/ 
+.alert {
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}

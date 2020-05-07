@@ -8,9 +8,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/a60a9ff68e.js" crossorigin="anonymous"></script>
+   
   </head>
 
   <body>
+    <% flash.each do |key, value| %> <!--登録フィードバック-->
+  <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+　　<% end %>
     <%= yield %>
+    <!--5秒で消える-->
+    <script> 
+  　$(function(){
+    　$(".alert").fadeOut(5000);
+ 　　 });
+　　</script>
   </body>
 </html>
