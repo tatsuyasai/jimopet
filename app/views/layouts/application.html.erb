@@ -13,8 +13,15 @@
 
   <body>
     <% flash.each do |key, value| %> <!--登録フィードバック-->
-  <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+  　　<div class="alert alert-<%= key %>" role="alert"><%= value %></div>
 　　<% end %>
+　　
+　　<!-- ナビゲーションバー-->
+　　<nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <div class="container">
+      </div>
+    </nav>
+    
     <%= yield %>
     <!--5秒で消える-->
     <script> 
