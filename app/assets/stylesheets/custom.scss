@@ -1,8 +1,9 @@
 /*pages/index*/
 .top-hero-wrapper {
-  width: 100vw;
+ 
   height: 100vh;
-  background-image: url('IMG_3355 2.JPG');
+  width: 100vw;
+  background-image: url('IMG_3355 3.JPG');
   background-attachment: fixed;
   background-size: cover;
 }
@@ -34,15 +35,15 @@
 .users-new-wrapper {
  width: 100vw;
  height: 100vh;
- background-image: url('IMG_3355 2.JPG');
+ background-image: url('IMG_3355 3.JPG');
  background-attachment: fixed;
  background-size: cover;
  
  .users-new-container {
-   padding-top: 130px;
+   padding-top: 120px;
    
    h1 {
-     padding-bottom: 40px;
+     padding-bottom: 30px;
    }
  }
  
@@ -54,9 +55,29 @@
    margin-left: 8px;
  }
 }
+
+.text {
+   font-family: 'Kosugi Maru', sans-serif;
+   color: #fff;
+}
 /*登録のフィードバック*/ 
 .alert {
   position: fixed;
   width: 100%;
   z-index: 10000;
 }
+/*ナビゲーションバー*/
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+  }
+  
+  .fa-white {
+    color: #fff;
+  }
+}
+

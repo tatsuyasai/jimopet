@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :logged_in? #ApplicationHelperでも使える
   
-  def current_user　#ログインしているユーザーを返す
-    @current_user ||= User.find_by(id: session[:user_id]) #とにかく省略形
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
   end
-  
-  def logged_in? #ログインしているか確認
+
+  def logged_in?
     !current_user.nil?
   end
 end

@@ -19,9 +19,22 @@
 　　<!-- ナビゲーションバー-->
 　　<nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
+        <%= link_to root_path do %>
+          <span><%= image_tag "logo2.png", class: "navbar-brand" %></span>
+        <% end %>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li>
+              <%= link_to logout_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt fa-3x fa-white"></i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        
       </div>
     </nav>
-    
     <%= yield %>
     <!--5秒で消える-->
     <script> 
