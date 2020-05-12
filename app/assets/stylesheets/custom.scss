@@ -17,7 +17,7 @@
   padding-top: 200px;
   
   h1 {
-    font-size: 60px;
+    font-size: 70px;
   }
   
   h4 {
@@ -76,8 +76,41 @@
     margin-top: 15px;
   }
   
-  .fa-white {
+  .nav-text {
     color: #fff;
+    font-size: 20px;
+    margin-top: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: 'Kosugi Maru', sans-serif;
+  }
+  
+  .nav-text2 {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: 'Kosugi Maru', sans-serif;
+    
   }
 }
-
+/*aboutページ*/
+.jumbotron {
+   /*background-color: rgba(0,0,0,0.8);*/
+   
+   h1 {
+     font-family: 'Corben', cursive;
+     font-size: 50px;
+   }
+}
+/*aboutページ*/ 
+.top-about-container {
+  padding-top: 150px;
+  
+  p {
+    font-family: 'Kosugi Maru', sans-serif;
+    padding-top: 20px;
+    font-size: 18px;
+  }
+}

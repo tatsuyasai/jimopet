@@ -23,12 +23,23 @@
           <span><%= image_tag "logo2.png", class: "navbar-brand" %></span>
         <% end %>
         
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav　navbar-light navbar-right nav-pills"> <!--nav-pillsで横並び-->
           <% if logged_in? %>
             <li>
-              <%= link_to logout_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt fa-3x fa-white"></i>
-              <% end %>
+              <%= link_to "ペット一覧", "#", class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "jimopetについて", pages_about_path, class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-text" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "jimopetについて", pages_about_path, class: "nav-text2" %>
+            </li>
+            <li>
+              <%= link_to "ログイン", login_path, class: "nav-text2" %>
             </li>
           <% end %>
         </ul>
@@ -39,7 +50,7 @@
     <!--5秒で消える-->
     <script> 
   　$(function(){
-    　$(".alert").fadeOut(5000);
+    　$(".alert").fadeOut(3000);
  　　 });
 　　</script>
   </body>
