@@ -18,6 +18,10 @@
   
   h1 {
     font-size: 70px;
+    text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+               0px 24px 2px rgba(0,0,0,0.1),
+               0px 34px 30px rgba(0,0,0,0.1);
   }
   
   h4 {
@@ -44,6 +48,10 @@
    
    h1 {
      padding-bottom: 30px;
+     text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+               
+               
    }
  }
  
@@ -53,6 +61,7 @@
  
  .btn-primary {
    margin-left: 8px;
+   
  }
 }
 
@@ -70,6 +79,7 @@
 .navbar-transparent {
   margin-bottom: 0px;
   background-color: rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 0px #B2A98F;
   
   .navbar-brand {
     padding: 0px;
@@ -83,6 +93,7 @@
     padding-top: 0px;
     padding-bottom: 0px;
     font-family: 'Kosugi Maru', sans-serif;
+    
   }
   
   .nav-text2 {
@@ -91,7 +102,7 @@
     margin-top: 30px;
     padding-top: 0px;
     padding-bottom: 0px;
-    font-family: 'Kosugi Maru', sans-serif;
+    font-family: 'Corben', cursive, 'Kosugi Maru', sans-serif;
     
   }
 }
@@ -104,7 +115,7 @@
      font-size: 50px;
    }
 }
-/*aboutページ*/ 
+
 .top-about-container {
   padding-top: 150px;
   
