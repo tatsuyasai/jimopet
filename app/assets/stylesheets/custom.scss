@@ -1,3 +1,4 @@
+
 /*pages/index*/
 .top-hero-wrapper {
  
@@ -50,8 +51,6 @@
      padding-bottom: 30px;
      text-shadow: 0px 3px 0px #b2a98f,
                0px 14px 10px rgba(0,0,0,0.15),
-               
-               
    }
  }
  
@@ -61,7 +60,6 @@
  
  .btn-primary {
    margin-left: 8px;
-   
  }
 }
 
@@ -117,11 +115,55 @@
 }
 
 .top-about-container {
-  padding-top: 150px;
+  padding-top: 140px;
   
   p {
     font-family: 'Kosugi Maru', sans-serif;
     padding-top: 20px;
     font-size: 18px;
   }
+}
+/*投稿*/
+.pet-container {
+   padding-top: 120px;
+   
+   h1 {
+     padding-bottom: 30px;
+     text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+  }
+}
+/*ペット一覧*/
+.pet-index-wrapper{
+  padding-top: 70px;
+  
+  .pet-index-single{
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+  }
+    
+    .pet-author {
+      padding-right: 20px;
+      padding-left: 20px;
+  }
+  
+  .pet-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    img {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+}
+.pet-container2 {
+  padding-top: 30px;
+  padding-right: 120px;
 }

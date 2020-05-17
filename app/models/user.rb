@@ -10,4 +10,6 @@ class User < ApplicationRecord
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}
   
   has_secure_password #password_confirmation（パスワード確認用の再入力）が使える
+  
+  has_many :pets
 end

@@ -26,7 +26,10 @@
         <ul class="nav navbar-nav　navbar-light navbar-right nav-pills"> <!--nav-pillsで横並び-->
           <% if logged_in? %>
             <li>
-              <%= link_to "ペット一覧", "#", class: "nav-text" %>
+              <%= link_to "ペット投稿", pets_new_path, class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "ペット一覧", pets_path, class: "nav-text" %>
             </li>
             <li>
               <%= link_to "jimopetについて", pages_about_path, class: "nav-text" %>
@@ -47,7 +50,7 @@
       </div>
     </nav>
     <%= yield %>
-    <!--5秒で消える-->
+    <!--3秒で消える-->
     <script> 
   　$(function(){
     　$(".alert").fadeOut(3000);
