@@ -23,8 +23,11 @@
           <span><%= image_tag "logo2.png", class: "navbar-brand" %></span>
         <% end %>
         
-        <ul class="nav navbar-nav　navbar-light navbar-right nav-pills"> <!--nav-pillsで横並び-->
+        <ul class="nav navbar-nav　 navbar-right nav-pills"> <!--nav-pillsで横並び-->
           <% if logged_in? %>
+            <li>
+              <%= link_to "ほしいリスト", favorites_index_path, class: "nav-text" %>
+            </li>
             <li>
               <%= link_to "ペット投稿", pets_new_path, class: "nav-text" %>
             </li>
@@ -56,5 +59,6 @@
     　$(".alert").fadeOut(3000);
  　　 });
 　　</script>
+　　
   </body>
 </html>

@@ -2,11 +2,11 @@
   <div class="pet-container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h1 class="text-center text-white">Adopt a pet</h1>
+        <h1 class="text-center text">譲る子の情報を入れてください</h1>
         <%= form_for @pet do |f| %>
           <div class="form-group">
             <%= f.label :image, class: 'text-white' %>
-            <%= f.file_field :image %>
+            <%= f.file_field :image %> <!--画像複数-->
           </div>
           
           <div class="form-group">

@@ -1,10 +1,13 @@
 <div class="pet-index-wrapper">
+  <!--<div class="bg-opacity">-->
+  <h1 class="text-center text">飼い主探してます</h1>
+  <h4 class="text-center text">引き取りたい子の「ほしいボタン」を押してください</h4>
   <div class="pet-container2">
-        <h1 class="text-center ">飼い主探してます</h1>
+    
     <div class="row">
       <% @pets.each do |pet| %>
       
-        <div class="col-md-offset-1 col-md-3">
+        <div class="col-md-4">
           <div class="pet-index-single">
             <h2 class="pet-author">
               <%= pet.user.name %>
@@ -14,10 +17,24 @@
             <p class="pet-text">
               <%= pet.description %>
             </p>
+            
+            <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
+            <i class="fas fa-paw"> ほしい</i>
+            <% end %>
+            
+            
+            <%= link_to "#", class: 'btn btn-primary rounded-pill' do %>
+            <i class="far fa-comment-dots"> コメント</i>
+            <% end %>
+            
+            <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
+            <%= link_to "削除", "/pets/#{pet.id}", method: :delete, class: 'btn btn-primary rounded-pill'  %>
+            <% end %>
           </div>
         </div>
       
       <% end %>
     </div>
   </div>
+  <!--</div>-->
 </div>

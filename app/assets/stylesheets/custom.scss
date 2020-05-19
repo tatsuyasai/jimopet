@@ -1,7 +1,12 @@
-
+/*html {
+    height: 100vh;
+}
+body {
+    height: 100vh;
+    margin: 0;
+}*/
 /*pages/index*/
 .top-hero-wrapper {
- 
   height: 100vh;
   width: 100vw;
   background-image: url('IMG_3355 3.JPG');
@@ -135,12 +140,31 @@
 }
 /*ペット一覧*/
 .pet-index-wrapper{
-  padding-top: 70px;
+  /*height: 100vh;
+  width: 100vw;これをすると一覧の下が白なる*/
+  background-size: 20px 20px;
+	background-color: #43A047;
+	background-image:
+	linear-gradient(45deg, rgba(56, 142, 60, 0.5) 25%, transparent 25%,
+	 transparent 50%, rgba(56, 142, 60, 0.5) 50%, rgba(56, 142, 60, 0.5) 75%,
+	 transparent 75%, transparent),
+	linear-gradient(-45deg, rgba(56, 142, 60, 0.5) 25%, transparent 25%,
+	 transparent 50%, rgba(56, 142, 60, 0.5) 50%, rgba(56, 142, 60, 0.5) 75%,
+	 transparent 75%, transparent);
+	 
+  h1 {
+    padding-top: 100px;
+    color: #FFFFEE;
+    text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+  }
   
   .pet-index-single{
-    background-color: #fff;
+    background-color: #FFFFEE;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-top: 30px;
     margin-bottom: 60px;
     border: 1px solid #e6ecf0;
@@ -164,6 +188,18 @@
     }
 }
 .pet-container2 {
-  padding-top: 30px;
-  padding-right: 120px;
+  padding: 30px;
+  
+}
+.pet-container3 {
+  padding: 60px;
+  
+}
+
+/*.bg-opacity {
+  background: rgba(255,255,255,0.5);
+  height: 100%;
+}*/
+.btn {
+  font-family: 'Kosugi Maru', sans-serif;
 }

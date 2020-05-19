@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_secure_password #password_confirmation（パスワード確認用の再入力）が使える
   
   has_many :pets
+  has_many :favorites
+  has_many :favorite_pets, through: :favorites, source: 'pet' #userが紐づいているfavoriteが紐づいているpetを取得
 end

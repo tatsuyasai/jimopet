@@ -18,6 +18,15 @@ class PetsController < ApplicationController
     end
   end
   
+  def destroy
+     @pet = Pet.find(params[:id])
+    if @pet.user_id == current_user.id
+       @pet.destroy
+       redirect_to pets_path, success: '削除しました'
+    end
+    
+  end
+  
   private
   def pet_params
     params.require(:pet).permit(:image, :description, :type, :prefecture, :city)

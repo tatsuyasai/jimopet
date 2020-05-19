@@ -9,7 +9,9 @@ class Pet < ApplicationRecord
   validates :description, presence: true
   
   belongs_to :user
+  has_one :favorite #欲しいボタンが一度に何人からも押されないように
   
   mount_uploader :image, ImageUploader
+  
   
 end
