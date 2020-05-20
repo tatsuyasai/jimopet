@@ -14,4 +14,5 @@ class User < ApplicationRecord
   has_many :pets
   has_many :favorites
   has_many :favorite_pets, through: :favorites, source: 'pet' #userが紐づいているfavoriteが紐づいているpetを取得
+  has_many :comments
 end

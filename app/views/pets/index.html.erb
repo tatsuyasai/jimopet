@@ -13,9 +13,21 @@
               <%= pet.user.name %>
             </h2>
             <%= image_tag pet.image.url %>
-            
+            <p class="pet-text">
+              <%= pet.type %>
+            </p>
+            <p class="pet-text">
+            <%= pet.prefecture %>
+            </p>
+            <p class="pet-text">
+            <%= pet.city %>
+            </p>
             <p class="pet-text">
               <%= pet.description %>
+            </p>
+            
+            <p class="pet-text">
+              <%= pet.gender %>
             </p>
             
             <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
@@ -23,12 +35,19 @@
             <% end %>
             
             
-            <%= link_to "#", class: 'btn btn-primary rounded-pill' do %>
+            <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
             <i class="far fa-comment-dots"> コメント</i>
             <% end %>
             
             <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
             <%= link_to "削除", "/pets/#{pet.id}", method: :delete, class: 'btn btn-primary rounded-pill'  %>
+            <% end %>
+            
+            <h4>コメント一覧</h4>
+            <% pet.comments.each do |comment| %>
+                <p class="pet-text">
+                  <%= comment.content %>
+                </p>
             <% end %>
           </div>
         </div>
