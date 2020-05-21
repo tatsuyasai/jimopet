@@ -7,28 +7,29 @@
         
           <div class="form-group">
             <%= f.label :ユーザー名, class: 'text' %>
-            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.text_field :name, class: 'form-control', placeholder: "ユーザー名" %>
           </div>
           
           <div class="form-group">
             <%= f.label :email, class: 'text-white' %>
-            <%= f.text_field :email, class: 'form-control' %>
+            <%= f.text_field :email, class: 'form-control', placeholder: "@email" %>
           </div>
           
           <div class="form-group">
             <%= f.label :パスワード, class: 'text' %>
-            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.password_field :password, class: 'form-control', placeholder: "8~32文字" %>
           </div>
           
           <div class="form-group">
             <%= f.label :パスワード確認, class: 'text' %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "確認" %>
           </div>
           <div class="col-md-offset-4">
           <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill' do %>
         　<i class="fas fa-paw"> 登 録</i>
        　  <% end %>
        　  </div>
+       　  
        　  
         <% end %>
       </div>

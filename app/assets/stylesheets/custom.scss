@@ -166,7 +166,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
   }
@@ -191,10 +191,21 @@ body {
   padding: 30px;
   
 }
+
 .pet-container3 {
   padding: 60px;
   
 }
+
+.pet-text1 {
+  float: left;
+  margin: 0 20px;
+}
+
+.pet-text2 {
+  float: left;
+}
+
 
 /*.bg-opacity {
   background: rgba(255,255,255,0.5);
@@ -202,4 +213,8 @@ body {
 }*/
 .btn {
   font-family: 'Kosugi Maru', sans-serif;
+}
+/*コメント*/
+.btn-zone {
+  margin-top: 30px;
 }

@@ -1,26 +1,31 @@
 <div class="comments-wrapper">
   <div class="pet-container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <h1 class="text-center">コメント</h1>
+    <h1 class="text-center">コメント</h1>
        
-          <%= form_for [@pet, @comment] do |f|  %>
+      <%= form_for @comment do |f|  %>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
             <%= f.text_field :content, class: "form-control" %>
+            <%= f.hidden_field :pet_id,value: params[:pet_id] %>
+          </div>
+        </div>
             
-            <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill' do %>
-        　    <i class="fas fa-paw"> コメントする</i>
-       　    <% end %>
-       　  
-       　   
-       　    <%= link_to pets_path, class: 'btn btn-primary rounded-pill' do %>
-              <i class="fas fa-paw"> 戻る</i>
-            <% end %>
-           
-           
-          <% end %>
-       
-        
-      </div>
-    </div>
+        <div class="row">
+          <div class="btn-zone">
+            <div class="col-md-offset-4 col-md-2">
+              <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill btn-block' do %>
+                <i class="fas fa-paw"> コメントする</i>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <%= link_to pets_path, class: 'btn btn-primary rounded-pill btn-block' do %>
+                <i class="fas fa-paw"> もどる</i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+       　
+      <% end %>
+      
   </div>
 </div>

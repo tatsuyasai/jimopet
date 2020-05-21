@@ -8,15 +8,45 @@
             <h2 class="pet-author">
               <%= pet.user.name %>
             </h2>
-            <%= image_tag pet.image.url %>
-            
+             <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
+            <div class="card-body">
+            <h3 class="card-title">
+              <%= pet.type %>
+            </h3>
+            <p class="pet-text">
+            <%= pet.prefecture %>
+            </p>
+            <p class="pet-text">
+            <%= pet.city %>
+            </p>
             <p class="pet-text">
               <%= pet.description %>
             </p>
-            <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-primary rounded-pill' do %>
+            
+            <p class="pet-text">
+              <%= pet.gender %>
+            </p>
+            
+          <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-primary rounded-pill' do %>
             <i class="fas fa-paw"> ほしいリストから外す</i>
             <% end %>
-           
+            
+            <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
+            <i class="far fa-comment-dots"> コメント</i>
+            <% end %>
+
+            
+            <h4>コメント一覧</h4>
+            <% pet.comments.each do |comment| %>
+                <p class="pet-text">
+                  <%= comment.content %>
+                </p>
+            <% end %>
+            
+            
+            
+            
+           </div>
           </div>
         </div>
       

@@ -18,6 +18,16 @@ class PetsController < ApplicationController
     end
   end
   
+  def edit
+    @pet = Pet.find(params[:id])#データベースから対象のpet_idをとる
+  end
+  
+  def update
+    @pet = Pet.find(params[:id])#空のモデルを用意だと新規作成になり修正ではない
+    @pet.update(params.require(:pet).permit(:image, :description, :type, :prefecture, :city))
+    redirect_to pets_path, success: '編集しました'
+  end
+  
   def destroy
      @pet = Pet.find(params[:id])
     if @pet.user_id == current_user.id

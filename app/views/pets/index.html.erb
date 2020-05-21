@@ -12,16 +12,17 @@
             <h2 class="pet-author">
               <%= pet.user.name %>
             </h2>
-            <%= image_tag pet.image.url %>
+            <p class="pet-text1">
+            <%= pet.prefecture %>
+            </p>
+            <p class="pet-text2">
+            <%= pet.city %>
+            </p>
+            <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
             <p class="pet-text">
               <%= pet.type %>
             </p>
-            <p class="pet-text">
-            <%= pet.prefecture %>
-            </p>
-            <p class="pet-text">
-            <%= pet.city %>
-            </p>
+            
             <p class="pet-text">
               <%= pet.description %>
             </p>
@@ -30,18 +31,31 @@
               <%= pet.gender %>
             </p>
             
+            <div class="row">
+              <div class="col-md-3">
             <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
             <i class="fas fa-paw"> ほしい</i>
             <% end %>
+            </div>
             
             
+            <div class="col-md-3">
             <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
             <i class="far fa-comment-dots"> コメント</i>
             <% end %>
+            </div>
+            
             
             <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
+            <div class="col-md-2 col-md-offset-1">
+            <%= link_to "編集", "/pets/#{pet.id}/edit", class: 'btn btn-primary rounded-pill'  %>
+            </div>
+            <div class="col-md-1">
             <%= link_to "削除", "/pets/#{pet.id}", method: :delete, class: 'btn btn-primary rounded-pill'  %>
+            </div>
             <% end %>
+            
+            </div>
             
             <h4>コメント一覧</h4>
             <% pet.comments.each do |comment| %>
