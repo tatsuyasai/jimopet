@@ -1,61 +1,47 @@
 <div class="pet-index-wrapper">
-  <!--<div class="bg-opacity">-->
   <h1 class="text-center text">飼い主探してます</h1>
-  <h4 class="text-center text">引き取りたい子の「ほしいボタン」を押してください</h4>
-  <div class="pet-container2">
-    
-    <div class="row">
-      <% @pets.each do |pet| %>
-      
-        <div class="col-md-4">
-          <div class="pet-index-single">
-            <h2 class="pet-author">
-              <%= pet.user.name %>
-            </h2>
-            <p class="pet-text1">
-            <%= pet.prefecture %>
-            </p>
-            <p class="pet-text2">
-            <%= pet.city %>
-            </p>
-            <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
-            <p class="pet-text">
-              <%= pet.type %>
-            </p>
-            
-            <p class="pet-text">
-              <%= pet.description %>
-            </p>
-            
-            <p class="pet-text">
-              <%= pet.gender %>
-            </p>
-            
-            <div class="row">
-              <div class="col-md-3">
-            <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
-            <i class="fas fa-paw"> ほしい</i>
-            <% end %>
-            </div>
-            
-            
-            <div class="col-md-3">
-            <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
-            <i class="far fa-comment-dots"> コメント</i>
-            <% end %>
-            </div>
-            
-            
-            <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
-            <div class="col-md-2 col-md-offset-1">
-            <%= link_to "編集", "/pets/#{pet.id}/edit", class: 'btn btn-primary rounded-pill'  %>
-            </div>
-            <div class="col-md-1">
-            <%= link_to "削除", "/pets/#{pet.id}", method: :delete, class: 'btn btn-primary rounded-pill'  %>
-            </div>
-            <% end %>
-            
-            </div>
+    <h4 class="text-center text">引き取りたい子の「ほしいボタン」を押してください</h4>
+      <div class="pet-container2">
+        <div class="row">
+        <% @pets.each do |pet| %>
+      　　<div class="col-md-4">
+          　<div class="pet-index-single">
+              <h4 class="card-header"><%= pet.type %></h4>
+              <h5 class="pet-author">
+                <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
+              </h5>
+              <p class="pet-text1">
+                <%= pet.prefecture %>
+              </p>
+              <p class="pet-text2">
+                <%= pet.city %>
+              </p>
+              <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
+              <p class="pet-text">
+                <%= pet.description %>
+              </p>
+              <p class="pet-text">
+                <%= pet.gender %>
+              </p>
+              <div class="row">
+                <div class="col-md-3">
+                  <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
+                    <i class="fas fa-paw"> ほしい</i>
+                  <% end %>
+                </div>
+                <div class="col-md-3">
+                  <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
+                    <i class="far fa-comment-dots"> コメント</i>
+                  <% end %>
+                </div>
+              </div>
+                <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
+                <div class="edit text-right">
+                  <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
+                  <%= link_to "削除", "/pets/#{pet.id}", method: :delete %>
+                </div>
+                <% end %>
+              
             
             <h4>コメント一覧</h4>
             <% pet.comments.each do |comment| %>

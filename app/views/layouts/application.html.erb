@@ -19,11 +19,10 @@
 　　<!-- ナビゲーションバー-->
 　　<nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
-        <%= link_to root_path do %>
-          <span><%= image_tag "logo2.png", class: "navbar-brand" %></span>
-        <% end %>
+        <%= link_to "jimopet",root_path, class: "navbar-brand nav-text3"  %>
+          
         
-        <ul class="nav navbar-nav　 navbar-right nav-pills"> <!--nav-pillsで横並び-->
+        <ul class="nav navbar-right nav-pills"> <!--nav-pillsで横並び-->
           <% if logged_in? %>
             <li>
               <%= link_to "ほしいリスト", favorites_index_path, class: "nav-text" %>

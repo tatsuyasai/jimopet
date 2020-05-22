@@ -24,13 +24,22 @@
             <%= f.label :パスワード確認, class: 'text' %>
             <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "確認" %>
           </div>
-          <div class="col-md-offset-4">
-          <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill' do %>
-        　<i class="fas fa-paw"> 登 録</i>
-       　  <% end %>
-       　  </div>
-       　  
-       　  
+          
+          <div class="row">
+            <div class="btn-zone">
+              <div class="col-md-6">
+                <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill btn-block' do %>
+                  <i class="fas fa-paw"> 登　録</i>
+                <% end %>
+              </div>
+              <div class="col-md-6">
+                <%= link_to root_path, class: 'btn btn-primary rounded-pill btn-block' do %>
+                  <i class="fas fa-paw"> もどる</i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          
         <% end %>
       </div>
     </div>

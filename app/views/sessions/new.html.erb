@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text-white">Login</h1>
+        <h1 class="text-center text">ログイン</h1>
         <%= form_for :session, url: login_path do |f| %>
         
           <div class="form-group">
@@ -15,11 +15,20 @@
             <%= f.password_field :password, class: 'form-control', placeholder: "8~32文字" %>
           </div>
           
-          <div class="col-md-offset-4">
-          <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill' do %>
-        　<i class="fas fa-paw"> 入 場</i>
-       　  <% end %>
-       　  </div>
+          <div class="row">
+            <div class="btn-zone">
+              <div class="col-md-6">
+                <%= button_tag :type => "submit", class: 'btn btn-primary rounded-pill btn-block' do %>
+                  <i class="fas fa-paw"> ログイン</i>
+                <% end %>
+              </div>
+              <div class="col-md-6">
+                <%= link_to root_path, class: 'btn btn-primary rounded-pill btn-block' do %>
+                  <i class="fas fa-paw"> もどる</i>
+                <% end %>
+              </div>
+            </div>
+          </div>
        　  
         <% end %>
       </div>

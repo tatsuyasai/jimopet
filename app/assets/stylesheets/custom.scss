@@ -5,6 +5,9 @@ body {
     height: 100vh;
     margin: 0;
 }*/
+.html, body {
+  height: 100%;
+}
 /*pages/index*/
 .top-hero-wrapper {
   height: 100vh;
@@ -81,8 +84,8 @@ body {
 /*ナビゲーションバー*/
 .navbar-transparent {
   margin-bottom: 0px;
-  background-color: rgba(0,0,0,0.5);
-  text-shadow: 2px 2px 0px #B2A98F;
+  background-color: black;
+  
   
   .navbar-brand {
     padding: 0px;
@@ -107,6 +110,16 @@ body {
     padding-bottom: 0px;
     font-family: 'Corben', cursive, 'Kosugi Maru', sans-serif;
     
+  }
+  
+  .nav-text3 {
+    color: #fff;
+    font-size: 30px;
+    margin-top: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: 'Corben', cursive, 'Kosugi Maru', sans-serif;
+    text-shadow: 2px 2px 0px #B2A98F;
   }
 }
 /*aboutページ*/
@@ -159,6 +172,10 @@ body {
                0px 14px 10px rgba(0,0,0,0.15),
   }
   
+  h3 {
+    padding-top: 120px;
+  }
+  
   .pet-index-single{
     background-color: #FFFFEE;
     padding-top: 20px;
@@ -173,12 +190,12 @@ body {
     
     .pet-author {
       padding-right: 20px;
-      padding-left: 20px;
+      padding-left: 10px;
   }
   
   .pet-text {
       padding-right: 20px;
-      padding-left: 20px;
+      padding-left: 10px;
     }
     
     img {
@@ -205,6 +222,9 @@ body {
 .pet-text2 {
   float: left;
 }
+.clear {
+  clear: both;
+}
 
 
 /*.bg-opacity {
@@ -217,4 +237,8 @@ body {
 /*コメント*/
 .btn-zone {
   margin-top: 30px;
+}
+
+.badge {
+  background-color: red;
 }
