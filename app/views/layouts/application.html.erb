@@ -21,7 +21,7 @@
       <div class="container">
         <%= link_to "jimopet",root_path, class: "navbar-brand nav-text3"  %>
           
-        
+        <div class="menu-pc">
         <ul class="nav navbar-right nav-pills"> <!--nav-pillsで横並び-->
           <% if logged_in? %>
             <li>
@@ -48,6 +48,43 @@
             </li>
           <% end %>
         </ul>
+        </div>
+        
+        
+        <!--smf-->
+        <div class="menu-smf navbar-right">
+          <input id="input" type="checkbox"> 
+      <label id="label1" for="input"><div class="line1"></div><div class="line2"></div><div class="line3"></div></label> 
+    <div id="content">
+        <ul id="link"> <!--nav-pillsで横並び-->
+          <% if logged_in? %>
+            <li>
+              <%= link_to "ほしいリスト", favorites_index_path, class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "ペット投稿", pets_new_path, class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "ペット一覧", pets_path, class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "jimopetについて", pages_about_path, class: "nav-text" %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-text" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "jimopetについて", pages_about_path, class: "nav-text2" %>
+            </li>
+            <li>
+              <%= link_to "ログイン", login_path, class: "nav-text2" %>
+            </li>
+          <% end %>
+        </ul>
+        </div>
+        </div>
+        
         
       </div>
     </nav>

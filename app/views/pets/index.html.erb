@@ -5,8 +5,9 @@
         <div class="row">
         <% @pets.each do |pet| %>
       　　<div class="col-md-4">
-          　<div class="pet-index-single">
+          　<div class="card">
               <h4 class="card-header"><%= pet.type %></h4>
+              <div class="card-body">
               <h5 class="pet-author">
                 <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
               </h5>
@@ -33,6 +34,7 @@
                   <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
                     <i class="far fa-comment-dots"> コメント</i>
                   <% end %>
+                  
                 </div>
               </div>
                 <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
@@ -45,10 +47,15 @@
             
             <h4>コメント一覧</h4>
             <% pet.comments.each do |comment| %>
+            
                 <p class="pet-text">
                   <%= comment.content %>
                 </p>
+                <% if logged_in? && current_user.id == pet.user_id %>
+                <%= link_to "コメント削除", "/pets/#{pet.id}", method: :delete %>
+                <% end %>
             <% end %>
+            </div>
           </div>
         </div>
       

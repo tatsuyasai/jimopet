@@ -1,13 +1,14 @@
 <div class="pet-index-wrapper">
     <h3 class="text-center text">アドレスより投稿者へご連絡ください</h4>
       
-  <div class="pet-container3">
+  <div class="pet-container2">
     <div class="row">
       <% @favorite_pets.each do |pet| %>
       
         <div class="col-md-4">
-          <div class="pet-index-single">
-            <h4 class="card-header"><%= pet.type %></h4>
+          <div class="card2">
+            <div class="card-header"><%= pet.type %></div>
+            <div class="card-body">
             <h5 class="pet-author">
               <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
             </h5>
@@ -49,7 +50,7 @@
             
             
             
-            
+            </div>
            </div>
           </div>
         </div>

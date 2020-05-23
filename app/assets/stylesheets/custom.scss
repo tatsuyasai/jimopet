@@ -176,16 +176,39 @@ body {
     padding-top: 120px;
   }
   
-  .pet-index-single{
+  .card {
+   background-color: #FFFFEE;
+   border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    
+ }
+ 
+ .card2 {
+   background-color: #FFFFEE;
+   border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    margin-bottom: 30px;
+ }
+  
+  .card-header{
+  padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: inherit;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 12px 20px;
+  }
+  
+  .card-body{
     background-color: #FFFFEE;
-    padding-top: 20px;
+    
     padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    border: 1px solid #e6ecf0;
-    border-radius: 3px;
+    
+    
+    
   }
     
     .pet-author {
@@ -242,3 +265,48 @@ body {
 .badge {
   background-color: red;
 }
+/*ハンバーガー*/
+#input {
+  display: none;
+}
+
+.line1,.line2,.line3{
+	width: 20px;
+	height: 3px;
+	background-color: white;
+	margin: 3px;
+}
+
+#content{
+	background-color: black;
+	width: 200px;
+	height: 160px;
+	padding-top: 10px;
+	transform: translateY(-160px); /*左側の奥の奥に埋めておく*/
+  transition: .3s ease-in-out;
+  position: fixed;
+}
+
+#input:checked ~ #content {
+	transform: translatex(0px);
+}
+
+@media screen and (min-width: 740px){
+  
+  .menu-smf{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 740px){
+  
+  .menu-pc{
+    display: none;
+  }
+}
+
+#label1 {
+  margin-top: 30px;
+  float: right;
+}
+
