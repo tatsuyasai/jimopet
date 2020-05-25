@@ -11,7 +11,7 @@ class Pet < ApplicationRecord
   belongs_to :user
   has_many :favorite 
  
-  has_many :comments
+  has_many :comments, dependent: :destroy#petが削除された際にcommentも
   
   mount_uploader :image, ImageUploader
   

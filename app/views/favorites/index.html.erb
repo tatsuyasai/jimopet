@@ -22,7 +22,8 @@
             <div class="card-body">
             
             
-            <p class="pet-text">
+            <p class="message">
+              ＜メッセージ＞<br>
               <%= pet.description %>
             </p>
             
@@ -30,7 +31,7 @@
               <%= pet.gender %>
             </p>
             
-            <p class="pet-text"><%= pet.user.email %></p>
+            
             
           <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-primary rounded-pill' do %>
             <i class="fas fa-paw"> ほしいリストから外す</i>
@@ -41,17 +42,23 @@
             <% end %>
 
             
-            <h4>コメント一覧</h4>
+            <h4>--コメント一覧--</h4>
             <% pet.comments.each do |comment| %>
                 <p class="pet-text">
+                  <%= comment.user.name %><br>
                   <%= comment.content %>
+                  <% if logged_in? && current_user.id == pet.user_id %>
+                <span class="delete"><%= link_to "削除", "/pets/#{pet.id}", method: :delete %></span>
+                <% end %>
                 </p>
             <% end %>
+            <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
             
             
             
             </div>
            </div>
+           <div class="card-footer text-center">連絡先：<%= pet.user.email %></div>
           </div>
         </div>
       

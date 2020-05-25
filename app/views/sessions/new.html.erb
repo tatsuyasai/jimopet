@@ -6,12 +6,12 @@
         <%= form_for :session, url: login_path do |f| %>
         
           <div class="form-group">
-            <%= f.label :email, class: 'text-white' %>
+            <%= f.label :メールアドレス, class: 'text' %>
             <%= f.text_field :email, class: 'form-control', placeholder: "@email" %>
           </div>
           
           <div class="form-group">
-            <%= f.label :password, class: 'text-white' %>
+            <%= f.label :パスワード, class: 'text' %>
             <%= f.password_field :password, class: 'form-control', placeholder: "8~32文字" %>
           </div>
           

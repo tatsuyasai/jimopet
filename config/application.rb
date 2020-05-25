@@ -16,5 +16,6 @@ module Jimopet
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]#画像
+    config.time_zone = 'Tokyo'#投稿時間表示を日本時間に
   end
 end
