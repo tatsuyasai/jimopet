@@ -44,7 +44,7 @@
                   <%= comment.user.name %><br>
                   <%= comment.content %>
                   <% if logged_in? && current_user.id == comment.user_id %>
-                <span class="delete"><%= link_to "削除", "/comments/#{pet.id}", method: :delete %></span>
+                <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete %></span>
                 <% end %>
                 </p>
                 

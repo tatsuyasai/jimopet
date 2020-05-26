@@ -1,11 +1,12 @@
-<div class="top-hero-wrapper">
-  <div class="pet-container">
-    <h1 class="text-center text">コメント</h1>
+<div class="pet-index-wrapper">
+  <h1 class="text-center text">コメント</h1>
+  <div class="comment-container">
+    
        
       <%= form_for @comment do |f|  %>
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
-            <%= f.text_field :content, class: "form-control" %>
+            <%= f.text_area :content, class: "form-control", :size=>"50x8" %><!--formのサイズ変更-->
             <%= f.hidden_field :pet_id,value: params[:pet_id] %>
           </div>
         </div>

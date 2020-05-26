@@ -78,16 +78,6 @@
    color: #fff;
 }
 
-.about-wrapper{
-  min-height: 100vh;
-  width: 100vw;
-  background-image: url('IMG_3355 3.JPG');
-  background-attachment: fixed;
-  background-size: cover;
-  overflow: scroll;
-  position: absolute;
-}
-
 /*登録のフィードバック*/ 
 .alert {
   position: fixed;
@@ -160,7 +150,7 @@
 }
 
 .top-about-container {
-  padding-top: 140px;
+  padding-top: 130px;
   
   p {
     font-family: 'Kosugi Maru', sans-serif;
@@ -169,9 +159,9 @@
   }
 }
 /*投稿*/
-.pet-container {
-   padding-top: 120px;
-   overflow: hidden;
+.pet-new-container {
+   padding: 90px 30px 0 30px;
+   
    
    
    h1 {
@@ -182,6 +172,9 @@
 }
 /*ペット一覧*/
 .pet-index-wrapper{
+  min-height: 100vh;
+  width: 100vw;
+  
   background-size: 20px 20px;
 	background-color: #43A047;
 	background-image:
@@ -316,6 +309,18 @@
   font-family: 'Kosugi Maru', sans-serif;
 }
 /*コメント*/
+.comment-container{
+  padding: 60px 30px 0 30px;
+  
+  h1 {
+    font-size: 40px;
+    text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+               0px 24px 2px rgba(0,0,0,0.1),
+               0px 34px 30px rgba(0,0,0,0.1);
+  }
+}
+
 .btn-zone {
   margin-top: 30px;
 }

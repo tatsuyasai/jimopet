@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to favorites_index_path, success: '削除しました'
+    redirect_to pets_path, success: '削除しました'
     
   end
   
