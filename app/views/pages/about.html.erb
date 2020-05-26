@@ -1,4 +1,4 @@
-<div class="top-hero-wrapper text-left">
+<div class="about-wrapper text-left">
   <div class="container top-about-container">
     <div class="jumbotron" style="left: 75px; right: 75px">
       <h1 class="display-4">jimopetとは？</h1>
@@ -10,12 +10,11 @@
       <span style="font-family: 'Corben', cursive;">jimopet</span>では譲渡は全て地元で無料にて行います。一般家庭から飼育放棄されたり、ペットショップで殺されるペットが少しでもなくなるよう、このサイトを活用していただけると幸いです。</p>
       <% if logged_in? %>
       <div class="row">
-        <div class="col-md-offset-4 col-md-2">
+        <div class="col-md-offset-4 col-md-4">
         <%= link_to pets_path, class: 'btn btn-primary rounded-pill' do %>
         <i class="fas fa-paw"> ペット一覧</i>
         <% end %>
-        </div>
-        <div class="col-md-2">
+        
         <%= link_to pets_new_path, class: 'btn btn-primary rounded-pill' do %>
         <i class="fas fa-paw"> ペット投稿</i>
         <% end %>
@@ -23,12 +22,12 @@
       </div>
       <% else%>
       <div class="row">
-        <div class="col-md-offset-4 col-md-2">
+        <div class="col-md-offset-4 col-md-4">
         <%= link_to new_user_path, class: 'btn btn-primary rounded-pill' do %>
         <i class="fas fa-paw"> 登　　録</i>
         <% end %>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
         <%= link_to login_path, class: 'btn btn-primary rounded-pill' do %>
         <i class="fas fa-paw"> ログイン</i>
         <% end %>
