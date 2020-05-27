@@ -6,7 +6,7 @@
       <% @favorite_pets.each do |pet| %>
       
         <div class="col-md-4">
-          <div class="card2">
+          <div class="card">
             <div class="card-header"><%= pet.type %></div>
             <div class="card-body">
             <h5 class="pet-author">
@@ -48,7 +48,7 @@
                   <%= comment.user.name %><br>
                   <%= comment.content %>
                   <% if logged_in? && current_user.id == pet.user_id %>
-                <span class="delete"><%= link_to "削除", "/pets/#{pet.id}", method: :delete %></span>
+                <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete %></span>
                 <% end %>
                 </p>
             <% end %>
