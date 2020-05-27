@@ -7,10 +7,6 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
   
-  def show
-    @pet = Pet.where(user_id: current_user.id)#自分の投稿したもの
-  end
-  
   def create
     @pet = current_user.pets.new(pet_params)
 

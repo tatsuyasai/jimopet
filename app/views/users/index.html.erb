@@ -1,0 +1,63 @@
+<div class="pet-index-wrapper">
+  <h1 class="text-center text">あなたが投稿したペット</h1>
+      <div class="pet-container2">
+        <div class="row">
+<% @pet.each do |pet| %>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header"><%= pet.type %></div>
+                  <div class="card-body">
+                    <h5 class="pet-author">
+                      <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
+                    </h5>
+                      <p class="pet-text1">
+                        <%= pet.prefecture %>
+                      </p>
+                      <p class="pet-text2">
+                        <%= pet.city %>
+                      </p>
+                        <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
+                      <div class="card-body">
+                        <p class="message">
+                          ＜メッセージ＞<br>
+                          <%= pet.description %>
+                        </p>
+                        <p class="pet-text">
+                          <%= pet.gender %>
+                        </p>
+                        <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
+                          <i class="fas fa-paw"> ほしい</i>
+                        <% end %>
+                        <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
+                          <i class="far fa-comment-dots"> コメント</i>
+                        <% end %>
+
+                        <h5>--コメント一覧--</h5>
+                        <% pet.comments.each do |comment| %>
+                          <p class="pet-text">
+                            <%= comment.user.name %><br>
+                            <%= comment.content %>
+                            <% if logged_in? && current_user.id == comment.user_id %>
+                              <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete %></span><!--#{comment.id}で対象コメント-->
+                            <% end %>
+                          </p>
+                        <% end %>
+                        <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
+                          <div class="edit text-right">
+                            <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
+                            <%= link_to "削除", "/pets/#{pet.id}", method: :delete %>
+                          </div>
+                        <% end %>
+                        
+                        
+                        <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
+                      </div>
+                    </div>
+           
+          </div>
+        </div>
+      
+      <% end %>
+          </div>
+  </div>
+</div>

@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def index
+    @pet = Pet.where(user_id: current_user.id)#自分の投稿したもの
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save

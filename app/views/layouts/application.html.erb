@@ -25,10 +25,10 @@
         <ul class="nav navbar-right nav-pills"> <!--nav-pillsで横並び-->
           <% if logged_in? %>
             <li>
-              <%= link_to "My投稿リスト", pet_path(@user), method: :get, class: "nav-text" %>
+              <%= link_to "My投稿リスト", users_path, class: "nav-text" %>
             </li>
             <li>
-              <%= link_to "ほしいしたリスト", favorites_index_path, class: "nav-text" %>
+              <%= link_to "ほしいリスト", favorites_index_path, class: "nav-text" %>
             </li>
             <li>
               <%= link_to "ペット投稿", pets_new_path, class: "nav-text" %>
