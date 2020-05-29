@@ -10,7 +10,7 @@
             <span class="badge badge-pill badge-danger">必須</span>
             <%= f.text_field :type, class: 'form-control', placeholder: "ペットの種類" %>
           </div>
-          
+          <% if false %><!--コメントアウト-->
           <div class="form-group">
             
               <%= f.label :性別, class: 'text' %>
@@ -23,7 +23,7 @@
               <%= f.radio_button :gender, 2, {checked: true} %> 不明
             </div>
           </div>
-          
+          <% end %>
           <div class="form-group">
             <%= f.label :都道府県, class: 'text' %>
             <%= f.select :prefecture, class: "form-control" do %>
@@ -90,7 +90,7 @@
           <div class="form-group">
             <%= f.label :メッセージ, class: 'text' %>
             <span class="badge badge-pill badge-danger">必須</span>
-            <%= f.text_area :description, class: 'form-control' %>
+            <%= f.text_area :description, class: 'form-control', placeholder: "例）2ヶ月の男の子です！" %>
           </div>
 
 <div class="row">

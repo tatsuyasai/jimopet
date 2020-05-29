@@ -14,5 +14,15 @@ class User < ApplicationRecord
   has_many :pets
   has_many :favorites
   has_many :favorite_pets, through: :favorites, source: 'pet' #userが紐づいているfavoriteが紐づいているpetを取得
+
+  def already_favorited?(pet)
+    self.favorites.exists?(pet_id: pet.id)
+  end
+
+
+  #def favorited_by?(pet_id)
+    #favorites.where(pet_id: pet_id).exists?
+  #end
+  
   has_many :comments
 end

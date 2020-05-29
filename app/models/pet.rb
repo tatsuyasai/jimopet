@@ -9,7 +9,8 @@ class Pet < ApplicationRecord
   validates :description, presence: true
   
   belongs_to :user
-  has_many :favorite 
+  has_many :favorites 
+  has_many :favorited_users, through: :favorites, source: :user#誰にいいねされたか
  
   has_many :comments, dependent: :destroy#petが削除された際にcommentも
   

@@ -278,6 +278,11 @@
   
 }
 
+.row-eq-height {/*グリッドの高さ揃える*/
+   display: flex;
+    flex-wrap: wrap;
+}
+
 .pet-container3 {
   padding: 60px;
   
@@ -338,9 +343,9 @@
 #content{
 	background-color: black;
 	width: 200px;
-	height: 160px;
+	height: 190px;
 	padding-top: 10px;
-	transform: translateY(-160px); /*左側の奥の奥に埋めておく*/
+	transform: translateY(-190px); /*左側の奥の奥に埋めておく*/
   transition: .3s ease-in-out;
   position: fixed;
 }
@@ -366,4 +371,9 @@
 #label1 {
   margin-top: 30px;
   float: right;
+}
+
+.row-eq-height {
+   display: flex;
+    flex-wrap: wrap;
 }

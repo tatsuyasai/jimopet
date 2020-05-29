@@ -1,11 +1,12 @@
 <div class="pet-index-wrapper">
-  <h1 class="text-center text">あなたが投稿したペット</h1>
+  <h3 class="text-center text">あなたが投稿したペット</h3>
+  
       <div class="pet-container2">
-        <div class="row">
+        <div class="row row-eq-height">
 <% @pet.each do |pet| %>
             <div class="col-md-4">
               <div class="card">
-                <div class="card-header"><%= pet.type %></div>
+                <h4 class="card-header"><%= pet.type %></h4>
                   <div class="card-body">
                     <h5 class="pet-author">
                       <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
@@ -25,9 +26,7 @@
                         <p class="pet-text">
                           <%= pet.gender %>
                         </p>
-                        <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
-                          <i class="fas fa-paw"> ほしい</i>
-                        <% end %>
+                        
                         <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
                           <i class="far fa-comment-dots"> コメント</i>
                         <% end %>
@@ -42,6 +41,11 @@
                             <% end %>
                           </p>
                         <% end %>
+                        
+                       <% @pet.favorited_users.each do |user| %>
+                        <li><%= user.email %></li>
+                       <% end %>
+                        
                         <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
                           <div class="edit text-right">
                             <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
@@ -49,7 +53,7 @@
                           </div>
                         <% end %>
                         
-                        
+                       
                         <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
                       </div>
                     </div>

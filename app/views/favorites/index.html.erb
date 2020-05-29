@@ -2,12 +2,12 @@
     <h3 class="text-center text">アドレスより投稿者へご連絡ください</h4>
       
   <div class="pet-container2">
-    <div class="row">
+    <div class="row row-eq-height">
       <% @favorite_pets.each do |pet| %>
       
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header"><%= pet.type %></div>
+            <h4 class="card-header"><%= pet.type %></h4>
             <div class="card-body">
             <h5 class="pet-author">
               <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
@@ -33,9 +33,15 @@
             
             
             
-          <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-primary rounded-pill' do %>
-            <i class="fas fa-paw"> ほしいリストから外す</i>
-            <% end %>
+          <% if current_user.favorites.find_by(pet_id: pet.id) %>
+                        <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-success rounded-pill' do %>
+                          <i class="fas fa-paw"> ほしい解除</i>
+                          <% end %>
+                        <% else %>
+                          <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
+                          <i class="fas fa-paw"> ほしい</i>
+                          <% end %>
+                        <% end %>
             
             <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
             <i class="far fa-comment-dots"> コメント</i>
