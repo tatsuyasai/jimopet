@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @pet = Pet.where(user_id: current_user.id)#自分の投稿したもの
+    @pets = Pet.where(user_id: current_user.id)#自分の投稿したもの
   end
   
   def create

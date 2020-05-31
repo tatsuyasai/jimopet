@@ -1,6 +1,6 @@
 <div class="pet-index-wrapper">
-    <h3 class="text-center text">アドレスより投稿者へご連絡ください</h4>
-      
+    <h1 class="text-center text">あなたがほしいした子たち</h1>
+      <h4 class="text-center text">投稿主からの連絡をお待ちください。</h4>
   <div class="pet-container2">
     <div class="row row-eq-height">
       <% @favorite_pets.each do |pet| %>
@@ -34,7 +34,7 @@
             
             
           <% if current_user.favorites.find_by(pet_id: pet.id) %>
-                        <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-success rounded-pill' do %>
+                        <%= link_to favorites_path(pet_id: pet.id), method: :delete, data: { confirm: '解除しますか？'}, class: 'btn btn-success rounded-pill' do %>
                           <i class="fas fa-paw"> ほしい解除</i>
                           <% end %>
                         <% else %>
@@ -50,11 +50,11 @@
             
             <h5>--コメント一覧--</h5>
             <% pet.comments.each do |comment| %>
-                <p class="pet-text">
-                  <%= comment.user.name %><br>
+                <p class="pet-comment">
+                  <span style="font-size: 12px;"><%= comment.user.name %></span><br>
                   <%= comment.content %>
                   <% if logged_in? && current_user.id == pet.user_id %>
-                <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete %></span>
+                <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span>
                 <% end %>
                 </p>
             <% end %>
@@ -64,7 +64,7 @@
             
             </div>
            </div>
-           <div class="card-footer text-center">連絡先：<%= pet.user.email %></div>
+           
           </div>
         </div>
       

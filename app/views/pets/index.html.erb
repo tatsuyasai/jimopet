@@ -1,6 +1,6 @@
 <div class="pet-index-wrapper">
   <h1 class="text-center text">飼い主探してます</h1>
-    <h4 class="text-center text">引き取りたい子の「ほしいボタン」を押してください</h4>
+    <h4 class="text-center text">引き取りたい子の「ほしいボタン」を押してください。<br>※ボタンを押すと投稿主にアドレスが表示されますので、連絡をお待ちください。</h4>
       <div class="pet-container2">
         <div class="row row-eq-height"><!--row-eq-heightとcssで高さ統一-->
           <% @pets.each do |pet| %>
@@ -28,7 +28,7 @@
                         </p>
                         
                         <% if current_user.favorites.find_by(pet_id: pet.id) %>
-                        <%= link_to favorites_path(pet_id: pet.id), method: :delete, class: 'btn btn-success rounded-pill' do %>
+                        <%= link_to favorites_path(pet_id: pet.id), method: :delete, data: { confirm: '解除しますか？'}, class: 'btn btn-success rounded-pill' do %>
                           <i class="fas fa-paw"> ほしい解除</i>
                           <% end %>
                         <% else %>
@@ -45,11 +45,11 @@
 
                         <h5>--コメント一覧--</h5>
                         <% pet.comments.each do |comment| %>
-                          <p class="pet-text">
-                            <%= comment.user.name %><br>
+                          <p class="pet-comment">
+                            <span style="font-size: 12px;"><%= comment.user.name %></span><br>
                             <%= comment.content %>
                             <% if logged_in? && current_user.id == comment.user_id %>
-                              <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete %></span><!--#{comment.id}で対象コメント-->
+                              <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span><!--#{comment.id}で対象コメント-->
                             <% end %>
                           </p>
                         <% end %>
@@ -59,7 +59,7 @@
                         <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
                           <div class="edit text-right">
                             <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
-                            <%= link_to "削除", "/pets/#{pet.id}", method: :delete %>
+                            <%= link_to "削除", "/pets/#{pet.id}", method: :delete, data: { confirm: '削除しますか？'} %>
                           </div>
                         <% end %>
                         <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->

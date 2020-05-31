@@ -1,9 +1,9 @@
 <div class="pet-index-wrapper">
-  <h3 class="text-center text">あなたが投稿したペット</h3>
-  
+  <h1 class="text-center text">あなたが投稿したペット</h1>
+  <h4 class="text-center text">ほしいボタンが押された場合、その方のアドレスが表示されています。<br>確認の上、ご連絡をお願いします。</h4>
       <div class="pet-container2">
         <div class="row row-eq-height">
-<% @pet.each do |pet| %>
+<% @pets.each do |pet| %>
             <div class="col-md-4">
               <div class="card">
                 <h4 class="card-header"><%= pet.type %></h4>
@@ -26,30 +26,27 @@
                         <p class="pet-text">
                           <%= pet.gender %>
                         </p>
-                        
                         <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
                           <i class="far fa-comment-dots"> コメント</i>
                         <% end %>
-
                         <h5>--コメント一覧--</h5>
                         <% pet.comments.each do |comment| %>
-                          <p class="pet-text">
-                            <%= comment.user.name %><br>
+                          <p class="pet-comment">
+                            <span style="font-size: 12px;"><%= comment.user.name %></span><br>
                             <%= comment.content %>
                             <% if logged_in? && current_user.id == comment.user_id %>
-                              <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete %></span><!--#{comment.id}で対象コメント-->
+                              <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span><!--#{comment.id}で対象コメント-->
                             <% end %>
                           </p>
                         <% end %>
                         
-                       <% @pet.favorited_users.each do |user| %>
-                        <li><%= user.email %></li>
-                       <% end %>
+                       
+                       
                         
                         <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
                           <div class="edit text-right">
                             <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
-                            <%= link_to "削除", "/pets/#{pet.id}", method: :delete %>
+                            <%= link_to "削除", "/pets/#{pet.id}", method: :delete, data: { confirm: '削除しますか？'} %>
                           </div>
                         <% end %>
                         
@@ -57,9 +54,24 @@
                         <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
                       </div>
                     </div>
-           
-          </div>
-        </div>
+                    
+                    <% if pet.favorited_users.count > 0 %>
+                      <div class="card-footer text-center">
+                        <% pet.favorited_users.each do |user| %>
+                          <p style="margin-bottom: 0;">
+                            <span style="color: red;">※ほしいボタンが押されました。</span><br><%= user.name %> さんが譲受希望です。こちらへ連絡お願いします。
+                            <br>email: <%= user.email %>
+                          </p>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <div class="card-footer text-center">
+                        <p style="margin-bottom: 0;">※ほしいボタンは押されていません。</p>
+                      </div>
+                    <% end %>
+                    
+                </div>
+               </div>
       
       <% end %>
           </div>
