@@ -1,74 +1,61 @@
 <div class="pet-index-wrapper">
-    <h1 class="text-center text">あなたがほしいした子たち</h1>
-      <h4 class="text-center text">投稿主からの連絡をお待ちください。</h4>
-  <div class="pet-container2">
-    <div class="row row-eq-height">
-      <% @favorite_pets.each do |pet| %>
-      
-        <div class="col-md-4">
-          <div class="card">
-            <h4 class="card-header"><%= pet.type %></h4>
-            <div class="card-body">
-            <h5 class="pet-author">
-              <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
-            </h5>
-            <p class="pet-text1">
-            <%= pet.prefecture %>
-            </p>
-            <p class="pet-text2">
-            <%= pet.city %>
-            </p>
-             <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
-            <div class="card-body">
-            
-            
-            <p class="message">
-              ＜メッセージ＞<br>
-              <%= pet.description %>
-            </p>
-            
-            <p class="pet-text">
-              <%= pet.gender %>
-            </p>
-            
-            
-            
-          <% if current_user.favorites.find_by(pet_id: pet.id) %>
+  <h1 class="text-center text">あなたがほしいした子たち</h1>
+    <h4 class="text-center text">投稿主からの連絡をお待ちください。</h4>
+      <div class="pet-container2">
+        <div class="row row-eq-height">
+          <% @favorite_pets.each do |pet| %>
+            <div class="col-md-4 col-sm-6">
+              <div class="card">
+                <h4 class="card-header"><%= pet.type %></h4>
+                  <div class="card-body">
+                    <h5 class="pet-author">
+                      <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
+                    </h5>
+                    <p class="pet-text1">
+                      <%= pet.prefecture %>
+                    </p>
+                    <p class="pet-text2">
+                      <%= pet.city %>
+                    </p>
+                     <%= image_tag pet.image.url, style: 'max-height: 300px; width: 100%; object-fit: contain' %>
+                    <div class="card-body">
+                      <p class="message">
+                        ＜メッセージ＞<br><%= pet.description %>
+                      </p>
+                      <p class="pet-text">
+                        <%= pet.gender %>
+                      </p>
+       
+                      <% if current_user.favorites.find_by(pet_id: pet.id) %>
                         <%= link_to favorites_path(pet_id: pet.id), method: :delete, data: { confirm: '解除しますか？'}, class: 'btn btn-success rounded-pill' do %>
                           <i class="fas fa-paw"> ほしい解除</i>
-                          <% end %>
-                        <% else %>
-                          <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
-                          <i class="fas fa-paw"> ほしい</i>
-                          <% end %>
                         <% end %>
+                      <% else %>
+                        <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
+                          <i class="fas fa-paw"> ほしい</i>
+                        <% end %>
+                      <% end %>
             
-            <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
-            <i class="far fa-comment-dots"> コメント</i>
-            <% end %>
-
-            
-            <h5>--コメント一覧--</h5>
-            <% pet.comments.each do |comment| %>
-                <p class="pet-comment">
-                  <span style="font-size: 12px;"><%= comment.user.name %></span><br>
-                  <%= comment.content %>
-                  <% if logged_in? && current_user.id == pet.user_id %>
-                <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span>
-                <% end %>
-                </p>
-            <% end %>
-            <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
-            
-            
-            
-            </div>
-           </div>
-           
-          </div>
+                      <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
+                        <i class="far fa-comment-dots"> コメント</i>
+                      <% end %>
+  
+                      <h5>--コメント一覧--</h5>
+                      <% pet.comments.each do |comment| %>
+                        <p class="pet-comment">
+                          <span style="font-size: 12px;"><%= comment.user.name %></span><br>
+                          <%= comment.content %>
+                          <% if logged_in? && current_user.id == pet.user_id %>
+                            <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span>
+                          <% end %>
+                        </p>
+                      <% end %>
+                      <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
+                    </div>
+                  </div>
+              </div>
+          　</div>
+          <% end %>
         </div>
-      
-      <% end %>
-    </div>
-  </div>
+      </div>
 </div>

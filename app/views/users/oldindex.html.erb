@@ -1,8 +1,8 @@
 <div class="pet-index-wrapper">
-  <h1 class="text-center text">飼い主探してます</h1>
-    <h4 class="text-center text", style="text-decoration: underline;">引き取りたい子の「ほしいボタン」を押してください。<br>※ボタンを押すと投稿主にアドレスが表示されますので、連絡をお待ちください。</h4>
+  <h1 class="text-center text">あなたが投稿したペット</h1>
+    <h4 class="text-center text">ほしいボタンが押されるとその方のアドレスが表示されます。<br>確認の上、ご連絡をお願いします。</h4>
       <div class="pet-container2">
-        <div class="row row-eq-height"><!--row-eq-heightとcssで高さ統一-->
+        <div class="row row-eq-height">
           <% @pets.each do |pet| %>
             <div class="col-md-4 col-sm-6">
               <div class="card">
@@ -26,21 +26,9 @@
                         <p class="pet-text">
                           <%= pet.gender %>
                         </p>
-                        
-                        <% if current_user.favorites.find_by(pet_id: pet.id) %>
-                        <%= link_to favorites_path(pet_id: pet.id), method: :delete, data: { confirm: '解除しますか？'}, class: 'btn btn-success rounded-pill' do %>
-                          <i class="fas fa-paw"> ほしい解除</i>
-                          <% end %>
-                        <% else %>
-                          <%= link_to favorites_path(pet_id: pet.id), method: :post, class: 'btn btn-primary rounded-pill' do %>
-                          <i class="fas fa-paw"> ほしい</i>
-                          <% end %>
-                        <% end %>
-                     
                         <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
                           <i class="far fa-comment-dots"> コメント</i>
                         <% end %>
-
                         <h5>--コメント一覧--</h5>
                         <% pet.comments.each do |comment| %>
                           <p class="pet-comment">
@@ -51,18 +39,36 @@
                             <% end %>
                           </p>
                         <% end %>
-                        
+                   
                         <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
                           <div class="edit text-right">
                             <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
                             <%= link_to "削除", "/pets/#{pet.id}", method: :delete, data: { confirm: '削除しますか？'} %>
                           </div>
                         <% end %>
+                        
                         <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
                       </div>
                   </div>
+                    
+                  <% if pet.favorited_users.count > 0 %><!--いいねした人が０より多い時-->
+                    <div class="card-footer text-center">
+                      <% pet.favorited_users.each do |user| %>
+                        <p style="margin-bottom: 0;">
+                          <span style="color: red;">※ほしいボタンが押されています</span><br>
+                          <span style="color: #337AB7;"><%= user.name %></span> さんが譲受希望です。<br>
+                          <span style="color: #337AB7;"><%= user.email %></span> までご連絡お願いします。
+                        </p>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <div class="card-footer text-center">
+                      <p style="margin-bottom: 0;">※まだほしいボタンは押されていません。</p>
+                    </div>
+                  <% end %>
+                    
               </div>
-            </div>
+        　　</div>
           <% end %>
         </div>
       </div>

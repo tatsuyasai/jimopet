@@ -1,4 +1,3 @@
-
 .html, body {
   height: 100vh;
   position: relative;
@@ -6,6 +5,7 @@
   margin-top: -20px;/*バックの空白消す*/
   margin-bottom: -20px;
 }
+
 /*pages/index*/
 .top-hero-wrapper {
   min-height: 100vh;
@@ -84,11 +84,11 @@
   width: 100%;
   z-index: 10000;
 }
+
 /*ナビゲーションバー*/
 .navbar-transparent {
   margin-bottom: 0px;
   background-color: black;
-  
   
   .navbar-brand {
     padding: 0px;
@@ -102,17 +102,15 @@
     padding-top: 0px;
     padding-bottom: 0px;
     font-family: 'Kosugi Maru', sans-serif;
-    
   }
   
   .nav-text2 {
     color: #fff;
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 30px;
     padding-top: 0px;
     padding-bottom: 0px;
     font-family: 'Corben', cursive, 'Kosugi Maru', sans-serif;
-    
   }
   
   .nav-text3 {
@@ -125,6 +123,7 @@
     text-shadow: 2px 2px 0px #B2A98F;
   }
 }
+
 /*aboutページ*/
 .about-wrapper{
   min-height: 100vh;
@@ -136,11 +135,8 @@
   position: absolute;
 }
 
-
-
 .jumbotron {
-   /*background-color: rgba(0,0,0,0.8);*/
-   overflow: hidden;
+  overflow: hidden;
   position: absolute;
    
    h1 {
@@ -158,11 +154,10 @@
     font-size: 18px;
   }
 }
+
 /*投稿*/
 .pet-new-container {
    padding: 30px 30px 0 30px;
-   
-   
    
    h1 {
      padding-bottom: 30px;
@@ -170,6 +165,7 @@
                0px 14px 10px rgba(0,0,0,0.15),
   }
 }
+
 /*ペット一覧*/
 .pet-index-wrapper{
   min-height: 100vh;
@@ -183,9 +179,8 @@
 	linear-gradient(-45deg, rgba(56, 142, 60, 0.5) 25%, transparent 25%,
 	 transparent 50%, rgba(56, 142, 60, 0.5) 50%, rgba(56, 142, 60, 0.5) 75%,
 	 transparent 75%, transparent);
-	  overflow: scroll;
-	  position: absolute;
-	 
+	overflow: scroll;
+	position: absolute;
 	 
   h1 {
     padding-top: 130px;
@@ -197,18 +192,16 @@
   h3 {
     padding-top: 120px;
   }
-  
- 
- 
+
  .card {
-   background-color: #FFFFEE;
-   border: 1px solid #e6ecf0;
+    background-color: #FFFFEE;
+    border: 1px solid #e6ecf0;
     border-radius: 3px;
     margin-bottom: 30px;
  }
   
   .card-header{
-  padding: .75rem 1.25rem;
+    padding: .75rem 1.25rem;
     margin-bottom: 0;
     margin-top: 0;
     color: inherit;
@@ -219,14 +212,12 @@
   
   .card-body{
     background-color: #FFFFEE;
-    
     padding-left: 10px;
     padding-right: 10px;
-    
   }
   
   .card-footer{
-  padding: .75rem 1.25rem;
+    padding: .75rem 1.25rem;
     margin-bottom: 0;
     margin-top: 0;
     color: inherit;
@@ -235,46 +226,45 @@
     padding: 12px 20px;
   }
     
-    .pet-author {
-      padding-right: 20px;
-      padding-left: 10px;
+  .pet-author {
+    padding-right: 20px;
+    padding-left: 10px;
   }
   
   .pet-text {
-      padding-right: 20px;
-      padding-left: 10px;
-      
-    }
+    padding-right: 20px;
+    padding-left: 10px;
+  }
     
-    .message {
-       padding-right: 20px;
-      padding-left: 10px;
-      background-color: rgba(0,0,0,.03);
-      border-radius: 3px;
-    }
+  .message {
+    padding-right: 20px;
+    padding-left: 10px;
+    background-color: rgba(0,0,0,.03);
+    border-radius: 3px;
+  }
     
-    img {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      width: 100%;
-    }
+  img {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
     
-    .time {
-      font-size: 12px;
-      color: #696969;
-    }
+  .time {
+    font-size: 12px;
+    color: #696969;
+  }
     
-    .delete {
-      font-size: 12px;
-      float: right;
-    }
-    .clear {
-  clear: both;
-    }
+  .delete {
+    font-size: 12px;
+    float: right;
+  }
+  .clear {
+    clear: both;
+  }
 }
+
 .pet-container2 {
   padding: 30px;
-  
 }
 
 .row-eq-height {/*グリッドの高さ揃える*/
@@ -284,7 +274,6 @@
 
 .pet-container3 {
   padding: 60px;
-  
 }
 
 .pet-text1 {
@@ -295,18 +284,15 @@
 .pet-text2 {
   float: left;
 }
+
 .clear {
   clear: both;
 }
 
-
-/*.bg-opacity {
-  background: rgba(255,255,255,0.5);
-  height: 100%;
-}*/
 .btn {
   font-family: 'Kosugi Maru', sans-serif;
 }
+
 /*コメント*/
 .comment-container{
   padding: 60px 30px 0 30px;
@@ -377,3 +363,14 @@
   float: right;
 }
 
+/*マイページ*/
+.table {
+  border-radius: 10px;
+}
+
+.mypage-text {
+  text-decoration: underline;
+  font-family: 'Kosugi Maru', sans-serif;
+   color: #fff;
+  margin-bottom: 40px;
+}
