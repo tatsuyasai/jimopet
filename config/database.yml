@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: jimopet_production
-  username: jimopet
-  password: <%= ENV['JIMOPET_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

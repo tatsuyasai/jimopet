@@ -9,7 +9,7 @@
                 <h4 class="card-header"><%= pet.type %></h4>
                   <div class="card-body">
                     <h5 class="pet-author">
-                      <p class="pet-text">ユーザー名：<%= pet.user.name %></p>
+                      <p class="pet-text">ユーザー名：<%= pet.user.try(:name) %></p>
                     </h5>
                     <p class="pet-text1">
                       <%= pet.prefecture %>
