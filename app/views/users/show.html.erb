@@ -16,8 +16,8 @@
     <tr>
       <td><%= @user.name %></td>
       <td><%= @user.email %></td>
-      <td style="padding-right: 0;"><%= link_to '編集', edit_user_path(current_user), class: 'btn btn-primary btn-xs' %></td>
-      <td style="padding-right: 0;"><%= link_to '削除', user_path(current_user), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger btn-xs' %></td>
+      <td style="padding-right: 0;"><%= link_to '編集', edit_user_path(current_user), class: 'btn btn2 btn-primary btn-xs' %></td>
+      <td style="padding-right: 0; margin: 10px 0;"><%= link_to '削除', user_path(current_user), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn2 btn-danger btn-xs' %></td>
     </tr>
      </tbody>
 </table>

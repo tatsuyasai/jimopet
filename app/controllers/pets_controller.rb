@@ -26,7 +26,13 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])#空のモデルを用意だと新規作成になり修正ではない
     @pet.update(params.require(:pet).permit(:image, :description, :type, :prefecture, :city))
+    
+    if @pet.save
     redirect_to pets_path, success: '編集しました'
+    else
+      flash.now[:danger] = "項目をすべて埋めてください"
+      render :edit
+    end
   end
   
   def destroy

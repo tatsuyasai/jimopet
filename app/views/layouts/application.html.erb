@@ -55,11 +55,11 @@
         
         
         <!--smf-->
-        <div class="menu-smf navbar-right">
+        <div class="menu-smf">
           <input id="input" type="checkbox"> 
       <label id="label1" for="input"><div class="line1"></div><div class="line2"></div><div class="line3"></div></label> 
     <div id="content">
-        <ul id="link"> <!--nav-pillsで横並び-->
+        <ul id="link"> 
           <% if logged_in? %>
             <li>
               <%= link_to "マイページ", user_path(current_user.id), class: "nav-text" %>
