@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/a60a9ff68e.js" crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
 　　
 　　<!-- ナビゲーションバー-->
 　　<nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-      <div class="container">
+      <div class="container", style="padding: 0;">
         <%= link_to "jimopet",root_path, class: "navbar-brand nav-text3"  %>
           
         <div class="menu-pc">
@@ -53,38 +54,37 @@
         </ul>
         </div>
         
-        
         <!--smf-->
         <div class="menu-smf">
           <input id="input" type="checkbox"> 
       <label id="label1" for="input"><div class="line1"></div><div class="line2"></div><div class="line3"></div></label> 
     <div id="content">
-        <ul id="link"> 
+        <ul id="link", style="list-style: none; padding-left: 10px"> 
           <% if logged_in? %>
-            <li>
-              <%= link_to "マイページ", user_path(current_user.id), class: "nav-text" %>
+            <li style="padding: 40px 15px 15px 15px;">
+              <%= link_to "マイページ", user_path(current_user.id), class: "nav-text", style: "font-size: 17px" %>
             </li>
-            <li>
-              <%= link_to "ほしいリスト", favorites_index_path, class: "nav-text" %>
+            <li style="padding: 15px;">
+              <%= link_to "ほしいリスト", favorites_index_path, class: "nav-text", style: "font-size: 17px" %>
             </li>
-            <li>
-              <%= link_to "ペット投稿", pets_new_path, class: "nav-text" %>
+            <li style="padding: 15px;">
+              <%= link_to "ペット投稿", pets_new_path, class: "nav-text", style: "font-size: 17px" %>
             </li>
-            <li>
-              <%= link_to "ペット一覧", pets_path, class: "nav-text" %>
+            <li style="padding: 15px;">
+              <%= link_to "ペット一覧", pets_path, class: "nav-text", style: "font-size: 17px" %>
             </li>
-            <li>
-              <%= link_to "jimopetについて", pages_about_path, class: "nav-text" %>
+            <li style="padding: 15px;">
+              <%= link_to "jimopetについて", pages_about_path, class: "nav-text", style: "font-size: 17px" %>
             </li>
-            <li>
-              <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-text" %>
+            <li style="padding: 15px;">
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-text", style: "font-size: 17px" %>
             </li>
           <% else %>
-            <li>
-              <%= link_to "jimopetについて", pages_about_path, class: "nav-text2" %>
+            <li style="padding: 40px 15px 15px 15px;">
+              <%= link_to "jimopetについて", pages_about_path, class: "nav-text2", style: "font-size: 17px" %>
             </li>
-            <li>
-              <%= link_to "ログイン", login_path, class: "nav-text2" %>
+            <li style="padding: 15px;">
+              <%= link_to "ログイン", login_path, class: "nav-text2", style: "font-size: 17px" %>
             </li>
           <% end %>
         </ul>
