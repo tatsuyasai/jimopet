@@ -78,3 +78,5 @@ gem 'bootstrap-sass'
 gem 'bcrypt'
 
 gem "carrierwave" #画像
+
+gem "aws-sdk-s3", require: false #S3に画像保存のため
