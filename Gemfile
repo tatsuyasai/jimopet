@@ -79,4 +79,8 @@ gem 'bcrypt'
 
 gem "carrierwave" #画像
 
-gem "aws-sdk-s3", require: false #S3に画像保存のため
+#gem "aws-sdk-s3", require: false #S3に画像保存のため
+
+gem 'fog-aws' #外部のストレージへのアップロードを可能にする
+
+gem 'dotenv-rails' #環境変数の設定
