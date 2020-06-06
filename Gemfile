@@ -84,3 +84,5 @@ gem "carrierwave" #画像
 gem 'fog-aws' #外部のストレージへのアップロードを可能にする
 
 gem 'dotenv-rails' #環境変数の設定
+
+gem 'rails_12factor', group: :production
