@@ -9,9 +9,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :file
   # storage :fog
   if Rails.env.development? # 開発環境はローカルへ、本番環境はAWS S3へアップロード
-   storage :file
+   storage :fog
   elsif Rails.env.test?
-   storage :file
+   storage :fog
   else
    storage :fog
   end
@@ -57,16 +57,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   
-  if Rails.env.production?
-    CarrierWave.configure do |config|
-      config.fog_credentials = {
-        # Amazon S3用の設定
-        :provider              => 'AWS',
-        :region                => ENV['AWS_DEFAULT_REGION'],  # S3に設定したリージョン。
-        :aws_access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
-        :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-      }
-      config.fog_directory     =  'rails-app-first-bucket'
-    end
-   end
+  # if Rails.env.production?
+  #   CarrierWave.configure do |config|
+  #     config.fog_credentials = {
+  #       # Amazon S3用の設定
+  #       :provider              => 'AWS',
+  #       :region                => ENV['AWS_DEFAULT_REGION'],  # S3に設定したリージョン。
+  #       :aws_access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+  #       :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #     }
+  #     config.fog_directory     =  'rails-app-first-bucket'
+  #   end
+  #  end
 end
