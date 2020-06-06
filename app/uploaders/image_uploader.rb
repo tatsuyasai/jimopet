@@ -9,9 +9,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :file
   # storage :fog
   if Rails.env.development? # 開発環境はローカルへ、本番環境はAWS S3へアップロード
-   storage :file
+   storage :fog
   elsif Rails.env.test?
-   storage :file
+   storage :fog
   else
    storage :fog
   end
