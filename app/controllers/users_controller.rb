@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def show
   @user = current_user
-  @pets = Pet.where(user_id: current_user.id)#自分の投稿したもの
+  @pets = Pet.where(user_id: current_user.id).order(created_at: :desc)#自分の投稿したもの
   end
   
   def create
