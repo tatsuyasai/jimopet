@@ -45,6 +45,9 @@
             </li>
           <% else %>
             <li>
+              <%= link_to "ペット一覧", pets_path, class: "nav-text2" %>
+            </li>
+            <li>
               <%= link_to "jimopetについて", pages_about_path, class: "nav-text2" %>
             </li>
             <li>
@@ -81,6 +84,9 @@
             </li>
           <% else %>
             <li style="padding: 40px 15px 15px 15px;">
+              <%= link_to "ペット一覧", pets_path, class: "nav-text", style: "font-size: 17px" %>
+            </li>
+            <li style="padding: 15px;">
               <%= link_to "jimopetについて", pages_about_path, class: "nav-text2", style: "font-size: 17px" %>
             </li>
             <li style="padding: 15px;">
