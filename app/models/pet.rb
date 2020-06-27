@@ -16,5 +16,11 @@ class Pet < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   
-  
+  def self.search(search) #self.はpetを意味する
+     if search
+       where(['type LIKE ?', "%#{search}%"]) #検索とtypeの部分一致を表示。
+     else
+       all #全て表示させる
+    end
+ end
 end

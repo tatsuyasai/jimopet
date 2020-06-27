@@ -1,7 +1,8 @@
 class PetsController < ApplicationController
   
   def index
-    @pets = Pet.all.order(created_at: :desc) #新しいものから表示される
+    @pets = Pet.all.order(created_at: :desc).search(params[:search])
+    #Pet.all.新しいものから表示される.検索機能
   end
   
   def new
