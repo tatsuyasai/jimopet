@@ -51,8 +51,13 @@
                         <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
                           <i class="far fa-comment-dots"> コメント</i>
                         <% end %>
-
-                        <h5>--コメント一覧--</h5>
+                        
+                        <ul id="faq-list">
+                         <li class="faq-list-item">
+                        <h5 class="question">--コメント一覧--</h5>
+                         <span>+</span>
+                         
+                        <div class="answer">
                         <% pet.comments.each do |comment| %>
                           <p class="pet-comment">
                             <span style="font-size: 12px;"><%= comment.user.name %></span><br>
@@ -62,6 +67,9 @@
                             <% end %>
                           </p>
                         <% end %>
+                        </div>
+                        </li>
+                        </ul>
                         
                         <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
                           <div class="edit text-right">
