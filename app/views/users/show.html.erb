@@ -53,16 +53,24 @@
                         <%= link_to comments_new_path(pet_id: pet.id), class: 'btn btn-primary rounded-pill' do %>
                           <i class="far fa-comment-dots"> コメント</i>
                         <% end %>
-                        <h5>--コメント一覧--</h5>
+                        
+                        <ul id="faq-list", style="padding-inline-start: 0;">
+                         <li class="faq-list-item">
+                        <h5>コメント一覧</h5>
+                        <span>+</span>
+                        <div class="answer">
                         <% pet.comments.each do |comment| %>
                           <p class="pet-comment">
-                            <span style="font-size: 12px;"><%= comment.user.name %></span><br>
+                           <%= comment.user.name %>
                             <%= comment.content %>
                             <% if logged_in? && current_user.id == comment.user_id %>
                               <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span><!--#{comment.id}で対象コメント-->
                             <% end %>
                           </p>
                         <% end %>
+                        </div>
+                        </li>
+                        </ul>
                    
                         <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
                           <div class="edit text-right">

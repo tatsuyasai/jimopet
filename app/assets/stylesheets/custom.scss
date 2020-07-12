@@ -342,10 +342,6 @@
   background-color: red;
 }
 
-.pet-comment {
-  border-bottom: 1px solid #c0c0c0;
-}
-
 /*ハンバーガー*/
 #input {
   display: none;
@@ -411,20 +407,21 @@
 .btn2 {
    margin: 0;
 }
-
+/*アコーディオン*/
 .faq-list-item {
   margin:10px;
   border-bottom:1px solid #ccc;
   position:relative;
   cursor:pointer;
   text-align: left;
+  list-style: none;
 }
 
 .faq-list-item span {
   position:absolute;
   top:0;
   right:5px;
-  color:#ccc;
+  color: black;
   font-size:13px;
 }
 
@@ -432,5 +429,4 @@
   font-size: 12px;
   display: none;
   padding: 5px 0px;
-  margin-bottom: 15px;
 }
