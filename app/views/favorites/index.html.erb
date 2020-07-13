@@ -40,23 +40,23 @@
                         <i class="far fa-comment-dots"> コメント</i>
                       <% end %>
                     
-                       <ul id="faq-list", style="padding-inline-start: 0;">
-                         <li class="faq-list-item">
-                      <h5>コメント一覧</h5>
-                       <span>+</span>
-                       <div class="answer">
-                      <% pet.comments.each do |comment| %>
-                        <p class="pet-comment">
-                          <%= comment.user.name %>　
-                          <%= comment.content %>
-                          <% if logged_in? && current_user.id == pet.user_id %>
-                            <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span>
-                          <% end %>
-                        </p>
-                      <% end %>
-                      </div>
+                      <ul id="faq-list", style="padding-inline-start: 0;">
+                        <li class="faq-list-item">
+                          <h5>コメント一覧</h5>
+                          <span>+</span>
+                            <div class="answer">
+                              <% pet.comments.each do |comment| %>
+                                <p class="pet-comment">
+                                  <%= comment.user.name %>　
+                                    <%= comment.content %>
+                                    <% if logged_in? && current_user.id == pet.user_id %>
+                                      <span class="delete"><%= link_to "削除", "/comments/#{comment.id}", method: :delete, data: { confirm: '削除しますか？'} %></span>
+                                    <% end %>
+                                </p>
+                              <% end %>
+                            </div>
                         </li>
-                        </ul>
+                      </ul>
                         
                       <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
                     </div>
