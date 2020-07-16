@@ -70,12 +70,6 @@
                           </li>
                         </ul>
                         
-                        <% if logged_in? && current_user.id == pet.user_id %><!--ログインして尚且つ投稿主だけ見える-->
-                          <div class="edit text-right">
-                            <%= link_to "編集", "/pets/#{pet.id}/edit" %>|
-                            <%= link_to "削除", "/pets/#{pet.id}", method: :delete, data: { confirm: '削除しますか？'} %>
-                          </div>
-                        <% end %>
                         <p class="time text-right"><%= pet.created_at.to_s(:datetime) %></p><!--.to_s(:datetime)でinitializers/time_format.rbを適用-->
                       </div>
                   </div>
