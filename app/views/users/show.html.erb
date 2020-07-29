@@ -86,8 +86,8 @@
                   <% if pet.favorited_users.count > 0 %><!--いいねした人が０より多い時-->
                     <div class="card-footer text-center">
                       <% pet.favorited_users.each do |user| %>
-                        <p style="margin-bottom: 0;">
-                          <span style="color: red;">※ほしいボタンが押されています</span><br>
+                        <p style="margin-bottom: 0; color: red;" class="purupuru">
+                          ※ほしいボタンが押されています</p><p>
                           <span style="color: #337AB7;"><%= user.name %></span> さんが譲受希望です。<br>
                           <span style="color: #337AB7;"><%= user.email %></span> までご連絡をお願いします。
                         </p>
